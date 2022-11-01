@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { checkUEN } from "../util/uenCheck";
 import { getWeather, getSGWeather } from "../util/weatherForecast";
 
-const options = {
+const options: Intl.DateTimeFormatOptions = {
     weekday: "short",
     month: "long",
     day: "numeric",
