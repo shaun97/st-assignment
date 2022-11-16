@@ -57,7 +57,11 @@ export const checkUEN: (x: string) => string = (uen) => {
         return "Length of UEN too long";
     }
 
-    uen = uen.toUpperCase();
+    if (uen.toUpperCase() !== uen) {
+        return "UEN needs to be all uppercase";
+    }
+
+    // uen = uen.toUpperCase();
     uen = uen.trim();
 
     // (A) Businesses registered with ACRA nnnnnnnnX
@@ -113,6 +117,12 @@ export const checkUEN: (x: string) => string = (uen) => {
             }
         } else {
             // Check year
+            for (let i = 0; i < 4; i++) {
+                if (isNaN(uen[i] as any)) {
+                    return "(B) Year should not have any numbers";
+                }
+            }
+
             const year = parseInt(uen.slice(0, 4));
             console.log(year);
             if (!checkValidYear(year)) {
