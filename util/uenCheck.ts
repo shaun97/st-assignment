@@ -119,7 +119,7 @@ export const checkUEN: (x: string) => string = (uen) => {
             // Check year
             for (let i = 0; i < 4; i++) {
                 if (isNaN(uen[i] as any)) {
-                    return "(B) Year should not have any numbers";
+                    return "(B) Year should not have any letters";
                 }
             }
 
