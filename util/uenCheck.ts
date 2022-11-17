@@ -45,6 +45,8 @@ const checkValidYear: (x: number) => boolean = (year) => {
     const currYear = currDate.getFullYear();
     if (year > currYear) {
         return false;
+    } else if (year < 1800) {
+        return false;
     } else {
         return true;
     }
